@@ -75,6 +75,57 @@
             height: 140px;
             resize: vertical;
         }
+
+        /* Contact Form Upgrade */
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 10px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 14px 16px;
+            border: 1.5px solid #e6e6e6;
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            background: #ffffff;
+            transition: all 0.25s ease;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #9a9a9a;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #ff6b81;
+            box-shadow: 0 0 0 3px rgba(255, 107, 129, 0.15);
+        }
+
+        .contact-form textarea {
+            min-height: 140px;
+        }
+
+        .contact-form button {
+            margin-top: 6px;
+            padding: 14px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+        }
     </style>
 </head>
 
@@ -130,15 +181,23 @@
             <a href="https://github.com/Mozahid-AIUB" target="_blank" class="btn btn-primary">View GitHub Profile</a>
         </div>
 
-        <div class="about-card">
-            <h2>Contact</h2>
-            <div class="contact-form">
-                <input type="text" placeholder="Your Name" />
-                <input type="email" placeholder="Your Email" />
-                <textarea placeholder="Your Message"></textarea>
-                <button class="btn btn-primary" onclick="alert('Message sent! Thank you.')">Send Message</button>
-            </div>
-        </div>
+        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-form">
+
+            <input type="hidden" name="form-name" value="contact">
+
+            <p hidden>
+                <input name="bot-field">
+            </p>
+
+            <input type="text" name="name" placeholder="Your Name" required>
+
+            <input type="email" name="email" placeholder="Your Email" required>
+
+            <textarea name="message" placeholder="Your Message" required></textarea>
+
+            <button class="btn btn-primary">Send Message</button>
+
+        </form>
 
     </div>
 
