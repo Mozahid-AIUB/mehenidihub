@@ -26,19 +26,6 @@
             padding: 0 var(--space-xl);
         }
 
-        .about-section h2 {
-            font-size: var(--text-2xl);
-            color: var(--color-primary-dark);
-            margin-bottom: var(--space-md);
-        }
-
-        .about-section p {
-            font-size: var(--text-base);
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: var(--space-lg);
-        }
-
         .about-card {
             background: var(--bg-card);
             border: 1px solid var(--border-light);
@@ -48,83 +35,80 @@
             box-shadow: var(--shadow-sm);
         }
 
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-md);
+        .about-card h2 {
+            font-size: var(--text-2xl);
+            color: var(--color-primary-dark);
+            margin-bottom: var(--space-md);
         }
 
-        .contact-form input,
-        .contact-form textarea {
-            padding: 12px 16px;
-            border: 1.5px solid var(--border-light);
-            border-radius: var(--radius-md);
+        .about-card p {
             font-size: var(--text-base);
-            font-family: var(--font-body);
-            background: var(--bg-page);
-            color: var(--text-primary);
-            transition: border-color var(--transition-fast);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-md);
         }
 
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: var(--color-primary);
-        }
-
-        .contact-form textarea {
-            height: 140px;
-            resize: vertical;
-        }
-
-        /* Contact Form Upgrade */
-
+        /* ── CONTACT FORM ── */
         .contact-form {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
             margin-top: 10px;
         }
 
         .contact-form input,
         .contact-form textarea {
             padding: 14px 16px;
-            border: 1.5px solid #e6e6e6;
-            border-radius: 10px;
-            font-size: 15px;
-            font-family: 'Poppins', sans-serif;
-            background: #ffffff;
-            transition: all 0.25s ease;
+            border: 1.5px solid var(--border-light);
+            border-radius: var(--radius-md);
+            font-size: var(--text-base);
+            font-family: var(--font-body);
+            background: var(--bg-page);
+            color: var(--text-primary);
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+            outline: none;
         }
 
         .contact-form input::placeholder,
         .contact-form textarea::placeholder {
-            color: #9a9a9a;
+            color: var(--text-muted);
         }
 
         .contact-form input:focus,
         .contact-form textarea:focus {
-            outline: none;
-            border-color: #ff6b81;
-            box-shadow: 0 0 0 3px rgba(255, 107, 129, 0.15);
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(181, 69, 27, 0.12);
         }
 
         .contact-form textarea {
             min-height: 140px;
+            resize: vertical;
         }
 
         .contact-form button {
-            margin-top: 6px;
             padding: 14px;
-            border-radius: 10px;
+            border-radius: var(--radius-md);
             font-weight: 600;
-            font-size: 15px;
+            font-size: var(--text-base);
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all var(--transition-normal);
         }
 
         .contact-form button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+            box-shadow: var(--shadow-md);
+        }
+
+        .success-msg {
+            display: none;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #a5d6a7;
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+            font-size: var(--text-base);
+            font-weight: 500;
+            text-align: center;
         }
     </style>
 </head>
@@ -134,8 +118,7 @@
     <!-- NAVBAR -->
     <nav class="navbar">
         <a class="navbar-logo" href="../index.html">
-            🌿 MehendiHub
-            <span>Eid Designs</span>
+            🌿 MehendiHub <span>Eid Designs</span>
         </a>
         <ul class="navbar-links">
             <li><a href="../index.html">Home</a></li>
@@ -170,7 +153,7 @@
         <div class="about-card">
             <h2>What is MehendiHub?</h2>
             <p>MehendiHub is a free Mehendi design gallery created to help people find the perfect henna design for Eid.
-                Browse hundreds of Simple, Arabic, Bridal, and Kids designs — all in one place.</p>
+                Browse Simple, Arabic, Bridal, and Kids designs — all in one place.</p>
             <p>Every design can be saved to your favorites and downloaded for free. No account needed.</p>
         </div>
 
@@ -181,24 +164,35 @@
             <a href="https://github.com/Mozahid-AIUB" target="_blank" class="btn btn-primary">View GitHub Profile</a>
         </div>
 
-        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field"
-            action="/pages/thank-you.html" class="contact-form">
+        <!-- ══ CONTACT FORM ══ -->
+        <div class="about-card">
+            <h2>Contact</h2>
+            <p>Have a question or suggestion? Send a message!</p>
 
-            <input type="hidden" name="form-name" value="contact">
+            <!-- Success message (shows after submit) -->
+            <div class="success-msg" id="successMsg">
+                ✅ Message sent! I will get back to you soon.
+            </div>
 
-            <p hidden>
-                <input name="bot-field">
-            </p>
+            <!-- FormSubmit — sends email directly to Gmail -->
+            <form class="contact-form" action="https://formsubmit.co/mozahidislam343@gmail.com" method="POST"
+                id="contactForm">
 
-            <input type="text" name="name" placeholder="Your Name" required>
+                <!-- FormSubmit hidden settings -->
+                <input type="hidden" name="_subject" value="New Message — MehendiHub Contact Form" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value="https://mehendihub.netlify.app/pages/about.html?sent=true" />
+                <input type="hidden" name="_template" value="table" />
 
-            <input type="email" name="email" placeholder="Your Email" required>
+                <!-- Form fields -->
+                <input type="text" name="name" placeholder="Your Name" required />
+                <input type="email" name="email" placeholder="Your Email" required />
+                <textarea name="message" placeholder="Your Message" required></textarea>
 
-            <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn btn-primary">📩 Send Message</button>
 
-            <button class="btn btn-primary">Send Message</button>
-
-        </form>
+            </form>
+        </div>
 
     </div>
 
@@ -229,12 +223,13 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 MehendiHub. Made with ❤️ by Mozahid</p>
+            <p>© 2025 MehendiHub. Made with ❤️ by Mozahid</p>
         </div>
     </footer>
 
     <script src="../js/darkmode.js"></script>
     <script>
+        // Hamburger menu
         var hamburger = document.getElementById("hamburger");
         var mobileMenu = document.getElementById("mobileMenu");
         if (hamburger) {
@@ -242,17 +237,13 @@
                 mobileMenu.classList.toggle("open");
             });
         }
-        document.querySelector('.contact-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            fetch("/", {
-                method: "POST",
-                body: formData
-            }).then(() => {
-                alert("Thanks! Your message has been sent.");
-                this.reset();
-            }).catch(() => alert("Oops! Something went wrong."));
-        });
+
+        // Show success message if redirected back after submit
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("sent") === "true") {
+            document.getElementById("successMsg").style.display = "block";
+            document.getElementById("contactForm").style.display = "none";
+        }
     </script>
 
 </body>
