@@ -8,7 +8,7 @@ MehendiHub is a front-end web project that lets users explore, save, and downloa
 
 ## ✨ Live Demo
 
-🔗 [mehenidihub.netlify.app](https://mehenidihub.netlify.app) *(deploy করার পরে update করো)*
+🔗 🔗 [mehendihub.netlify.app](https://mehendihub.netlify.app/)
 
 ---
 
