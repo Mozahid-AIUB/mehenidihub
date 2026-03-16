@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorites — MehendiHub</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/gallery.css" />
+    <link rel="stylesheet" href="../css/dark-mode.css" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a class="navbar-logo" href="../index.html">
+            🌿 MehendiHub
+            <span>Eid Designs</span>
+        </a>
+        <ul class="navbar-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="favorites.html" class="active">❤️ Favorites <span class="fav-count-badge"
+                        id="favCount">0</span></a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="navbar-right">
+            <button class="dark-toggle" id="darkToggle" title="Toggle dark mode">🌙</button>
+            <button class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="favorites.html">❤️ Favorites</a>
+        <a href="about.html">About</a>
+    </div>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1>❤️ Your Favorites</h1>
+        <p>All the designs you saved in one place.</p>
+    </div>
+
+    <!-- CONTROLS -->
+    <div class="page-wrapper"
+        style="padding-top: var(--space-xl); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <p style="color: var(--text-muted); font-size: var(--text-sm);">
+            <strong id="favCountText">0</strong> saved designs
+        </p>
+        <button class="btn btn-secondary btn-sm" onclick="clearAllFavorites()">🗑 Clear All</button>
+    </div>
+
+    <!-- FAVORITES GRID -->
+    <div class="page-wrapper">
+        <div class="gallery-grid" id="favGrid"></div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState" style="display:none;">
+            <div class="empty-icon">💔</div>
+            <h3>No saved designs yet</h3>
+            <p>Go to the gallery and click the heart icon on designs you love.</p>
+            <a href="gallery.html" class="btn btn-primary">Browse Gallery</a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">🌿 MehendiHub</div>
+                <p>Your go-to destination for beautiful Mehendi designs for Eid and every celebration.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Pages</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="favorites.html">Favorites</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="gallery.html?filter=simple">Simple</a></li>
+                    <li><a href="gallery.html?filter=arabic">Arabic</a></li>
+                    <li><a href="gallery.html?filter=bridal">Bridal</a></li>
+                    <li><a href="gallery.html?filter=kids">Kids</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 MehendiHub. Made with ❤️ by Mozahid</p>
+        </div>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/darkmode.js"></script>
+    <script>
+        function loadFavorites() {
+            var favIds = JSON.parse(localStorage.getItem("favorites") || "[]");
+            var grid = document.getElementById("favGrid");
+            var empty = document.getElementById("emptyState");
+            var countText = document.getElementById("favCountText");
+            var badge = document.getElementById("favCount");
+
+            if (countText) countText.textContent = favIds.length;
+            if (badge) {
+                badge.textContent = favIds.length;
+                badge.style.display = favIds.length === 0 ? "none" : "flex";
+            }
+
+            grid.innerHTML = "";
+
+            if (favIds.length === 0) {
+                empty.style.display = "block";
+                return;
+            }
+
+            empty.style.display = "none";
+
+            favIds.forEach(function (id, i) {
+                var d = designs.find(function (x) { return x.id === id; });
+                if (!d) return;
+
+                var card = document.createElement("div");
+                card.className = "design-card animate-fadeIn";
+                card.innerHTML =
+                    '<div class="card-img-wrap">' +
+                    '<img src="' + d.image + '" alt="' + d.name + '" loading="lazy" />' +
+                    '</div>' +
+                    '<div class="card-body">' +
+                    '<span class="badge badge-' + d.category + '">' + d.category + '</span>' +
+                    '<h3>' + d.name + '</h3>' +
+                    '<div class="card-actions">' +
+                    '<button class="heart-btn saved" onclick="removeFav(\'' + d.id + '\')">' +
+                    '<span class="heart-icon">❤️</span> Remove' +
+                    '</button>' +
+                    '<a class="download-btn" href="' + d.image + '" download="' + d.name + '">⬇ Download</a>' +
+                    '</div>' +
+                    '</div>';
+
+                grid.appendChild(card);
+            });
+        }
+
+        function removeFav(id) {
+            var favIds = JSON.parse(localStorage.getItem("favorites") || "[]");
+            favIds = favIds.filter(function (x) { return x !== id; });
+            localStorage.setItem("favorites", JSON.stringify(favIds));
+            loadFavorites();
+            showToast("Removed from favorites");
+        }
+
+        function clearAllFavorites() {
+            if (!confirm("Remove all saved designs?")) return;
+            localStorage.removeItem("favorites");
+            loadFavorites();
+            showToast("All favorites cleared");
+        }
+
+        function showToast(message, type) {
+            var old = document.querySelector(".toast");
+            if (old) old.remove();
+            var toast = document.createElement("div");
+            toast.className = "toast " + (type || "");
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(function () {
+                toast.style.animation = "toastOut 0.3s ease forwards";
+                setTimeout(function () { toast.remove(); }, 300);
+            }, 2500);
+        }
+
+        var hamburger = document.getElementById("hamburger");
+        var mobileMenu = document.getElementById("mobileMenu");
+        if (hamburger) {
+            hamburger.addEventListener("click", function () {
+                mobileMenu.classList.toggle("open");
+            });
+        }
+
+        loadFavorites();
+    </script>
+
+</body>
+
+</html>

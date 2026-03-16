@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ══ SEO ══ -->
+    <title>Gallery — MehendiHub | 42+ Mehendi Designs</title>
+    <meta name="description"
+        content="Browse 42+ Mehendi designs for Eid 2025. Filter by Simple, Arabic, Bridal and Kids categories. Download free henna designs." />
+    <meta name="keywords"
+        content="mehendi gallery, henna designs 2025, arabic mehendi, bridal mehndi, simple henna design, eid mehndi" />
+    <meta property="og:title" content="Gallery — MehendiHub | 42+ Mehendi Designs" />
+    <meta property="og:description" content="Browse and download 42+ beautiful Mehendi designs for Eid 2025." />
+    <meta property="og:image" content="https://images.pexels.com/photos/2643556/pexels-photo-2643556.jpeg?w=600" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/gallery.css" />
+    <link rel="stylesheet" href="../css/dark-mode.css" />
+
+    <style>
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #7a2b10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #f5c518;
+            margin-bottom: 20px;
+        }
+
+        .loader-bar-bg {
+            width: 180px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .loader-bar-fill {
+            height: 100%;
+            background: #f5c518;
+            border-radius: 999px;
+            width: 0%;
+            animation: loadBar 1.4s ease forwards;
+        }
+
+        .loader-text {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+            margin-top: 12px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @keyframes loadBar {
+            0% {
+                width: 0%
+            }
+
+            60% {
+                width: 75%
+            }
+
+            100% {
+                width: 100%
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="loader">
+        <div class="loader-logo">🌿 MehendiHub</div>
+        <div class="loader-bar-bg">
+            <div class="loader-bar-fill"></div>
+        </div>
+        <div class="loader-text">Loading designs...</div>
+    </div>
+
+    <nav class="navbar">
+        <a class="navbar-logo" href="../index.html">🌿 MehendiHub <span>Eid Designs</span></a>
+        <ul class="navbar-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="favorites.html">❤️ Favorites <span class="fav-count-badge" id="favCount">0</span></a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="navbar-right">
+            <button class="dark-toggle" id="darkToggle" title="Toggle dark mode">🌙</button>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="favorites.html">❤️ Favorites</a>
+        <a href="about.html">About</a>
+    </div>
+
+    <div class="page-header">
+        <h1>Mehendi Design Gallery</h1>
+        <p>Browse our full collection of beautiful Mehendi designs for Eid.</p>
+    </div>
+
+    <div class="gallery-controls page-wrapper">
+        <div class="search-wrapper">
+            <span class="search-icon">🔍</span>
+            <input class="search-input" type="text" id="searchInput" placeholder="Search designs..."
+                onkeyup="filterDesigns()" />
+        </div>
+        <div class="filter-row">
+            <button class="filter-btn active" onclick="setFilter('all', this)">All Designs</button>
+            <button class="filter-btn" onclick="setFilter('simple', this)">🌸 Simple</button>
+            <button class="filter-btn" onclick="setFilter('arabic', this)">🌙 Arabic</button>
+            <button class="filter-btn" onclick="setFilter('bridal', this)">💍 Bridal</button>
+            <button class="filter-btn" onclick="setFilter('kids', this)">🌟 Kids</button>
+        </div>
+        <div class="gallery-result-info">
+            Showing <strong id="resultCount">0</strong> designs
+        </div>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="gallery-grid" id="galleryGrid"></div>
+        <div class="empty-state" id="noResult" style="display:none;">
+            <div class="empty-icon">🔍</div>
+            <h3>No designs found</h3>
+            <p>Try a different search or select a different category.</p>
+            <button class="btn btn-primary" onclick="resetSearch()">Show All Designs</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">🌿 MehendiHub</div>
+                <p>Your go-to destination for beautiful Mehendi designs for Eid.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Pages</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="favorites.html">Favorites</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="gallery.html?filter=simple">Simple</a></li>
+                    <li><a href="gallery.html?filter=arabic">Arabic</a></li>
+                    <li><a href="gallery.html?filter=bridal">Bridal</a></li>
+                    <li><a href="gallery.html?filter=kids">Kids</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 MehendiHub. Made with ❤️ by Mozahid</p>
+        </div>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/darkmode.js"></script>
+    <script src="../js/gallery.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            setTimeout(function () {
+                var loader = document.getElementById("loader");
+                if (loader) loader.classList.add("hidden");
+            }, 1400);
+        });
+    </script>
+</body>
+
+</html>

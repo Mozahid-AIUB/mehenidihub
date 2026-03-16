@@ -1,0 +1,79 @@
+/* ================================================
+   gallery.css — MehendiHub
+   Styles only for gallery.html page.
+================================================ */
+
+
+/* ── PAGE HEADER ── */
+.page-header {
+    background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+    padding: var(--space-2xl) var(--space-xl);
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: var(--text-3xl);
+    color: var(--color-gold);
+    margin-bottom: var(--space-sm);
+}
+
+.page-header p {
+    font-size: var(--text-md);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+
+/* ── GALLERY CONTROLS BAR ── */
+.gallery-controls {
+    padding: var(--space-xl) 0 var(--space-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.gallery-result-info {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+}
+
+.gallery-result-info strong {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+
+/* ── GALLERY GRID ── */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    padding-bottom: var(--space-3xl);
+}
+
+
+/* ── DESIGN CARD ── */
+/* (base card styles are in components.css,
+    these are gallery-specific overrides) */
+
+.design-card .card-img-wrap {
+    height: 240px;
+}
+
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header h1 {
+        font-size: var(--text-2xl);
+    }
+}

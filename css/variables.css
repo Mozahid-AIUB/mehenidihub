@@ -1,0 +1,136 @@
+/* ================================================
+   variables.css — MehendiHub Design System
+   All colors, fonts, spacing defined here.
+   Every other CSS file uses these variables.
+================================================ */
+
+:root {
+
+    /* ── BRAND COLORS ── */
+    --color-primary: #b5451b;
+    /* Deep henna red */
+    --color-primary-dark: #7a2b10;
+    /* Darker red (navbar, footer) */
+    --color-primary-light: #fde9d4;
+    /* Very light red (badges, bg) */
+    --color-gold: #f5c518;
+    /* Eid gold (buttons, accents) */
+    --color-gold-dark: #d4a800;
+    /* Darker gold (hover) */
+
+    /* ── BACKGROUND COLORS ── */
+    --bg-page: #fdf6ef;
+    /* Warm cream page background */
+    --bg-card: #ffffff;
+    /* White card background */
+    --bg-section-alt: #fff8f2;
+    /* Slightly warm section bg */
+    --bg-navbar: #7a2b10;
+    /* Navbar background */
+    --bg-footer: #4a1a08;
+    /* Footer background */
+
+    /* ── TEXT COLORS ── */
+    --text-primary: #1a1a1a;
+    /* Main dark text */
+    --text-secondary: #555555;
+    /* Muted text */
+    --text-muted: #999999;
+    /* Very light text */
+    --text-on-dark: #ffffff;
+    /* Text on dark backgrounds */
+    --text-on-gold: #1a1a1a;
+    /* Text on gold buttons */
+
+    /* ── BORDER COLORS ── */
+    --border-light: #e8ddd3;
+    /* Light card border */
+    --border-medium: #d4c4b8;
+    /* Medium border */
+    --border-focus: #b5451b;
+    /* Input focus border */
+
+    /* ── STATUS COLORS ── */
+    --color-success: #2e7d32;
+    --color-error: #c62828;
+    --color-warning: #f57c00;
+    --color-info: #1565c0;
+
+    /* ── FONTS ── */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Poppins', Arial, sans-serif;
+
+    /* ── FONT SIZES ── */
+    --text-xs: 11px;
+    --text-sm: 13px;
+    --text-base: 15px;
+    --text-md: 17px;
+    --text-lg: 20px;
+    --text-xl: 24px;
+    --text-2xl: 30px;
+    --text-3xl: 38px;
+    --text-4xl: 52px;
+
+    /* ── SPACING ── */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 40px;
+    --space-2xl: 64px;
+    --space-3xl: 96px;
+
+    /* ── BORDER RADIUS ── */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 999px;
+
+    /* ── SHADOWS ── */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.10);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.14);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.18);
+
+    /* ── TRANSITIONS ── */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.25s ease;
+    --transition-slow: 0.4s ease;
+
+    /* ── LAYOUT ── */
+    --max-width: 1200px;
+    --navbar-height: 68px;
+    --card-img-height: 220px;
+
+    /* ── Z-INDEX LAYERS ── */
+    --z-base: 1;
+    --z-card: 10;
+    --z-navbar: 100;
+    --z-modal: 1000;
+    --z-toast: 2000;
+}
+
+
+/* ================================================
+   DARK MODE VARIABLES
+   When user switches to dark mode,
+   these values override the ones above.
+================================================ */
+
+body.dark-mode {
+    --bg-page: #1a1009;
+    --bg-card: #2a1a0e;
+    --bg-section-alt: #221409;
+    --bg-navbar: #0f0804;
+    --bg-footer: #0a0503;
+
+    --text-primary: #f5ede0;
+    --text-secondary: #c8b4a0;
+    --text-muted: #806050;
+
+    --border-light: #3d2515;
+    --border-medium: #4d3020;
+
+    --color-primary-light: #3d1a08;
+}

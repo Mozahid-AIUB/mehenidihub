@@ -1,0 +1,189 @@
+/* ================================================
+   animations.css — MehendiHub
+   All smooth effects and entrance animations.
+================================================ */
+
+/* ── PAGE LOAD FADE IN ── */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── SCALE POP (for cards on hover) ── */
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ── SLIDE IN FROM LEFT ── */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ── SLIDE IN FROM RIGHT ── */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ── PULSE (for heart button) ── */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ── SHIMMER (loading skeleton effect) ── */
+@keyframes shimmer {
+    0% {
+        background-position: -400px 0;
+    }
+
+    100% {
+        background-position: 400px 0;
+    }
+}
+
+/* ── TOAST SLIDE UP ── */
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toastOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* ── SPIN (for loading spinner) ── */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ================================================
+   UTILITY ANIMATION CLASSES
+   Add these classes to any HTML element.
+================================================ */
+
+.animate-fadeIn {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.animate-popIn {
+    animation: popIn 0.4s ease forwards;
+}
+
+.animate-slideLeft {
+    animation: slideInLeft 0.5s ease forwards;
+}
+
+.animate-slideRight {
+    animation: slideInRight 0.5s ease forwards;
+}
+
+/* Staggered card entrance (delay each card) */
+.animate-delay-1 {
+    animation-delay: 0.05s;
+}
+
+.animate-delay-2 {
+    animation-delay: 0.10s;
+}
+
+.animate-delay-3 {
+    animation-delay: 0.15s;
+}
+
+.animate-delay-4 {
+    animation-delay: 0.20s;
+}
+
+.animate-delay-5 {
+    animation-delay: 0.25s;
+}
+
+.animate-delay-6 {
+    animation-delay: 0.30s;
+}
+
+/* Skeleton loader */
+.skeleton {
+    background: linear-gradient(90deg, #f0e6dc 25%, #fdf0e8 50%, #f0e6dc 75%);
+    background-size: 400px 100%;
+    animation: shimmer 1.4s infinite;
+    border-radius: var(--radius-md);
+}
+
+/* Loading spinner */
+.spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid var(--border-light);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 40px auto;
+}
+
+/* Heart pulse on click */
+.heart-pulse {
+    animation: pulse 0.3s ease;
+}

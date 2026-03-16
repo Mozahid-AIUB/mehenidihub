@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ══ SEO META TAGS ══ -->
+    <title>MehendiHub — Beautiful Eid Mehendi Designs 2025</title>
+    <meta name="description"
+        content="Discover 42+ beautiful Mehendi designs for Eid 2025. Browse Simple, Arabic, Bridal and Kids henna designs. Free to download and share." />
+    <meta name="keywords"
+        content="mehendi design, henna design, eid mehendi, arabic mehendi, bridal mehndi, simple henna, kids mehendi, eid 2025" />
+    <meta name="author" content="Mozahid" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://mehenidihub.netlify.app/" />
+
+    <!-- ══ OPEN GRAPH (Facebook, WhatsApp Preview) ══ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MehendiHub — Beautiful Eid Mehendi Designs 2025" />
+    <meta property="og:description"
+        content="Discover 42+ beautiful Mehendi designs for Eid 2025. Browse Simple, Arabic, Bridal and Kids henna designs. Free to download!" />
+    <meta property="og:image" content="https://images.pexels.com/photos/2643556/pexels-photo-2643556.jpeg?w=600" />
+    <meta property="og:url" content="https://mehenidihub.netlify.app/" />
+    <meta property="og:site_name" content="MehendiHub" />
+
+    <!-- ══ TWITTER CARD ══ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MehendiHub — Beautiful Eid Mehendi Designs 2025" />
+    <meta name="twitter:description"
+        content="42+ free Mehendi designs for Eid. Simple, Arabic, Bridal and Kids categories." />
+    <meta name="twitter:image" content="https://images.pexels.com/photos/2643556/pexels-photo-2643556.jpeg?w=600" />
+
+    <!-- ══ GOOGLE FONTS ══ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- ══ CSS ══ -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/dark-mode.css" />
+
+    <!-- ══ LOADING SCREEN STYLE ══ -->
+    <style>
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #7a2b10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #f5c518;
+            margin-bottom: 24px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .loader-bar-bg {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .loader-bar-fill {
+            height: 100%;
+            background: #f5c518;
+            border-radius: 999px;
+            width: 0%;
+            animation: loadBar 1.5s ease forwards;
+        }
+
+        .loader-text {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 13px;
+            margin-top: 14px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @keyframes loadBar {
+            0% {
+                width: 0%;
+            }
+
+            60% {
+                width: 75%;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ══ LOADING SCREEN ══ -->
+    <div id="loader">
+        <div class="loader-logo">🌿 MehendiHub</div>
+        <div class="loader-bar-bg">
+            <div class="loader-bar-fill"></div>
+        </div>
+        <div class="loader-text">Loading beautiful designs...</div>
+    </div>
+
+    <!-- ══ NAVBAR ══ -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            🌿 MehendiHub
+            <span>Eid Designs</span>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="pages/gallery.html">Gallery</a></li>
+            <li><a href="pages/favorites.html">❤️ Favorites <span class="fav-count-badge" id="favCount">0</span></a>
+            </li>
+            <li><a href="pages/about.html">About</a></li>
+        </ul>
+        <div class="navbar-right">
+            <button class="dark-toggle" id="darkToggle" title="Toggle dark mode">🌙</button>
+            <button class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="pages/gallery.html">Gallery</a>
+        <a href="pages/favorites.html">❤️ Favorites</a>
+        <a href="pages/about.html">About</a>
+    </div>
+
+    <!-- ══ HERO ══ -->
+    <section class="hero">
+        <div class="hero-pattern"></div>
+        <div class="hero-content animate-fadeIn">
+            <div class="hero-tag">✨ Eid Mubarak Collection 2025</div>
+            <h1>Beautiful Mehendi<br />Designs for <span>Eid</span></h1>
+            <p>Discover hundreds of stunning Mehendi designs for your Eid celebration. Simple, Arabic, Bridal and Kids
+                designs — all free to browse and download.</p>
+            <div class="hero-buttons">
+                <a href="pages/gallery.html" class="btn btn-primary btn-lg">Explore Designs</a>
+                <a href="pages/gallery.html?filter=bridal" class="btn btn-secondary btn-lg">Bridal Collection</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <strong><span class="counter-num" data-target="42" data-suffix="+">0+</span></strong>
+                    <span>Designs</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <strong><span class="counter-num" data-target="4">0</span></strong>
+                    <span>Categories</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <strong>Free</strong>
+                    <span>Downloads</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image animate-slideRight">
+            <div class="hero-img-card">
+                <img src="https://images.pexels.com/photos/2643556/pexels-photo-2643556.jpeg?w=600"
+                    alt="Featured Mehendi Design" />
+                <div class="hero-img-badge">⭐ Most Popular</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ CATEGORIES ══ -->
+    <section class="categories-section">
+        <div class="page-wrapper">
+            <h2 class="section-title">Browse by <span>Category</span></h2>
+            <div class="categories-grid">
+                <a href="pages/gallery.html?filter=simple" class="cat-card animate-fadeIn animate-delay-1">
+                    <div class="cat-icon">🌸</div>
+                    <div class="cat-info">
+                        <h3>Simple</h3>
+                        <p>Easy and elegant designs</p>
+                    </div>
+                    <div class="cat-arrow">→</div>
+                </a>
+                <a href="pages/gallery.html?filter=arabic" class="cat-card animate-fadeIn animate-delay-2">
+                    <div class="cat-icon">🌙</div>
+                    <div class="cat-info">
+                        <h3>Arabic</h3>
+                        <p>Bold floral patterns</p>
+                    </div>
+                    <div class="cat-arrow">→</div>
+                </a>
+                <a href="pages/gallery.html?filter=bridal" class="cat-card animate-fadeIn animate-delay-3">
+                    <div class="cat-icon">💍</div>
+                    <div class="cat-info">
+                        <h3>Bridal</h3>
+                        <p>Full hand bridal art</p>
+                    </div>
+                    <div class="cat-arrow">→</div>
+                </a>
+                <a href="pages/gallery.html?filter=kids" class="cat-card animate-fadeIn animate-delay-4">
+                    <div class="cat-icon">🌟</div>
+                    <div class="cat-info">
+                        <h3>Kids</h3>
+                        <p>Fun and simple patterns</p>
+                    </div>
+                    <div class="cat-arrow">→</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ DESIGN OF THE DAY ══ -->
+    <section class="dotd-section">
+        <div class="page-wrapper">
+            <div class="dotd-wrapper">
+                <div class="dotd-text animate-slideLeft">
+                    <div class="dotd-label">⭐ Design of the Day</div>
+                    <h2 id="dotdName">Loading...</h2>
+                    <p>Hand-picked for today. A stunning design chosen daily from our collection to inspire your Eid
+                        look.</p>
+                    <div class="dotd-badge-row">
+                        <span class="badge badge-primary" id="dotdCategory">—</span>
+                    </div>
+                    <div class="dotd-actions">
+                        <a href="pages/gallery.html" class="btn btn-primary">View All Designs</a>
+                        <button class="btn btn-secondary" id="dotdDownload">⬇ Download</button>
+                    </div>
+                </div>
+                <div class="dotd-image animate-slideRight">
+                    <img id="dotdImg" src="https://images.pexels.com/photos/5246793/pexels-photo-5246793.jpeg?w=600"
+                        alt="Design of the Day" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ FEATURED DESIGNS ══ -->
+    <section class="featured-section">
+        <div class="page-wrapper">
+            <h2 class="section-title">Featured <span>Designs</span></h2>
+            <div class="design-grid" id="featuredGrid"></div>
+            <div class="featured-cta">
+                <a href="pages/gallery.html" class="btn btn-primary btn-lg">View All 42 Designs →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══ FOOTER ══ -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">🌿 MehendiHub</div>
+                <p>Your go-to destination for beautiful Mehendi designs for Eid and every celebration.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Pages</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pages/gallery.html">Gallery</a></li>
+                    <li><a href="pages/favorites.html">Favorites</a></li>
+                    <li><a href="pages/about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="pages/gallery.html?filter=simple">Simple</a></li>
+                    <li><a href="pages/gallery.html?filter=arabic">Arabic</a></li>
+                    <li><a href="pages/gallery.html?filter=bridal">Bridal</a></li>
+                    <li><a href="pages/gallery.html?filter=kids">Kids</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 MehendiHub. Made with ❤️ by Mozahid</p>
+            <p>Free to use for personal projects.</p>
+        </div>
+    </footer>
+
+    <!-- ══ SURPRISE ME BUTTON ══ -->
+    <button id="surpriseBtn" title="Surprise Me!"
+        style="position:fixed;bottom:90px;right:24px;background:var(--color-primary);color:white;border:none;border-radius:50px;padding:12px 18px;font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(181,69,27,0.4);z-index:998;display:flex;align-items:center;gap:6px;">
+        🎲 Surprise Me
+    </button>
+
+    <!-- ══ BACK TO TOP ══ -->
+    <button id="backToTop" title="Back to top"
+        style="display:none;position:fixed;bottom:24px;right:24px;background:#7a2b10;color:white;border:none;border-radius:50%;width:46px;height:46px;font-size:20px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.25);z-index:998;align-items:center;justify-content:center;">↑</button>
+
+    <!-- ══ SCRIPTS ══ -->
+    <script src="js/data.js"></script>
+    <script src="js/darkmode.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- ══ LOADER HIDE SCRIPT ══ -->
+    <script>
+        window.addEventListener("load", function () {
+            setTimeout(function () {
+                var loader = document.getElementById("loader");
+                if (loader) loader.classList.add("hidden");
+            }, 1600);
+        });
+    </script>
+
+</body>
+
+</html>

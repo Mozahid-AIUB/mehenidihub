@@ -1,0 +1,343 @@
+/* ================================================
+   layout.css — MehendiHub
+   Navbar + Footer styles.
+   These appear on EVERY page.
+================================================ */
+
+/* ══════════════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════════════ */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-navbar);
+    background-color: var(--bg-navbar);
+    height: var(--navbar-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--space-xl);
+    box-shadow: var(--shadow-md);
+}
+
+/* Logo */
+.navbar-logo {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-gold);
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.navbar-logo span {
+    color: var(--text-on-dark);
+    font-size: var(--text-sm);
+    font-family: var(--font-body);
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+/* Nav Links */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+}
+
+.navbar-links a {
+    color: var(--text-on-dark);
+    font-size: var(--text-base);
+    font-weight: 500;
+    padding: var(--space-xs) 0;
+    border-bottom: 2px solid transparent;
+    transition: color var(--transition-fast),
+        border-color var(--transition-fast);
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+    color: var(--color-gold);
+    border-bottom-color: var(--color-gold);
+}
+
+/* Nav Right Side (dark mode + favorite count) */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+/* Favorite counter badge in navbar */
+.nav-fav-btn {
+    position: relative;
+    color: var(--text-on-dark);
+    font-size: var(--text-base);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color var(--transition-fast);
+}
+
+.nav-fav-btn:hover {
+    color: var(--color-gold);
+}
+
+.fav-count-badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: var(--color-gold);
+    color: var(--text-on-gold);
+    font-size: 10px;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+/* Dark mode toggle button */
+.dark-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-on-dark);
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: background var(--transition-fast);
+}
+
+.dark-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile hamburger menu button */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-on-dark);
+    border-radius: 2px;
+    transition: all var(--transition-fast);
+}
+
+/* Mobile nav menu (hidden by default) */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+    right: 0;
+    background-color: var(--bg-navbar);
+    padding: var(--space-md) var(--space-xl) var(--space-xl);
+    z-index: var(--z-navbar);
+    box-shadow: var(--shadow-lg);
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.mobile-menu.open {
+    display: flex;
+}
+
+.mobile-menu a {
+    color: var(--text-on-dark);
+    font-size: var(--text-md);
+    font-weight: 500;
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu a:hover {
+    color: var(--color-gold);
+}
+
+
+/* ══════════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════════ */
+
+.footer {
+    background-color: var(--bg-footer);
+    color: var(--text-on-dark);
+    padding: var(--space-2xl) var(--space-xl) var(--space-xl);
+    margin-top: var(--space-3xl);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-2xl);
+    max-width: var(--max-width);
+    margin: 0 auto var(--space-xl);
+}
+
+/* Footer Brand Column */
+.footer-brand .footer-logo {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    color: var(--color-gold);
+    margin-bottom: var(--space-sm);
+}
+
+.footer-brand p {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+    max-width: 280px;
+}
+
+/* Footer Link Columns */
+.footer-col h4 {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--space-md);
+}
+
+.footer-col ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.footer-col ul li a {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.6);
+    transition: color var(--transition-fast);
+}
+
+.footer-col ul li a:hover {
+    color: var(--color-gold);
+}
+
+/* Footer Bottom Bar */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: var(--space-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.footer-bottom p {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-bottom a {
+    color: var(--color-gold);
+}
+
+
+/* ══════════════════════════════════════════════
+   PAGE WRAPPER (used on every page)
+══════════════════════════════════════════════ */
+
+.page-wrapper {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+}
+
+/* Section title style (reused everywhere) */
+.section-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    color: var(--color-primary-dark);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.section-title span {
+    color: var(--color-primary);
+}
+
+
+/* ══════════════════════════════════════════════
+   TOAST NOTIFICATION (appears at bottom)
+══════════════════════════════════════════════ */
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1a1a1a;
+    color: white;
+    padding: 12px 24px;
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    z-index: var(--z-toast);
+    animation: toastIn 0.3s ease forwards;
+    white-space: nowrap;
+    box-shadow: var(--shadow-xl);
+}
+
+.toast.success {
+    background-color: var(--color-success);
+}
+
+.toast.error {
+    background-color: var(--color-error);
+}
+
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — MOBILE
+══════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 var(--space-md);
+    }
+
+    .navbar-links {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--space-sm);
+        text-align: center;
+    }
+
+    .page-wrapper {
+        padding: 0 var(--space-md);
+    }
+}

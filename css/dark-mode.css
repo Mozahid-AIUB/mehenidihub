@@ -1,0 +1,78 @@
+/* ================================================
+   dark-mode.css — MehendiHub
+   All dark mode overrides.
+   These apply when body has class "dark-mode".
+================================================ */
+
+body.dark-mode .cat-card {
+    background-color: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .cat-info h3 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .cat-info p {
+    color: var(--text-muted);
+}
+
+body.dark-mode .design-card {
+    background-color: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .design-card h3 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .heart-btn {
+    background-color: var(--bg-card);
+    border-color: var(--border-light);
+    color: var(--text-secondary);
+}
+
+body.dark-mode .heart-btn:hover {
+    background-color: #3d1515;
+}
+
+body.dark-mode .download-btn {
+    background-color: var(--color-primary-light);
+    color: #f5c9b0;
+    border-color: var(--border-light);
+}
+
+body.dark-mode .download-btn:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+body.dark-mode .search-input {
+    background-color: var(--bg-card);
+    border-color: var(--border-light);
+    color: var(--text-primary);
+}
+
+body.dark-mode .filter-btn {
+    background-color: var(--bg-card);
+    border-color: var(--border-light);
+    color: var(--text-secondary);
+}
+
+body.dark-mode .filter-btn:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+body.dark-mode .filter-btn.active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+body.dark-mode .dotd-section {
+    background-color: var(--bg-section-alt);
+}
+
+body.dark-mode .section-title {
+    color: var(--text-primary);
+}

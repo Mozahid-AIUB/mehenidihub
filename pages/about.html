@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — MehendiHub</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="../css/variables.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/dark-mode.css" />
+
+    <style>
+        .about-section {
+            max-width: 720px;
+            margin: var(--space-3xl) auto;
+            padding: 0 var(--space-xl);
+        }
+
+        .about-section h2 {
+            font-size: var(--text-2xl);
+            color: var(--color-primary-dark);
+            margin-bottom: var(--space-md);
+        }
+
+        .about-section p {
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-lg);
+        }
+
+        .about-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-xl);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px 16px;
+            border: 1.5px solid var(--border-light);
+            border-radius: var(--radius-md);
+            font-size: var(--text-base);
+            font-family: var(--font-body);
+            background: var(--bg-page);
+            color: var(--text-primary);
+            transition: border-color var(--transition-fast);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--color-primary);
+        }
+
+        .contact-form textarea {
+            height: 140px;
+            resize: vertical;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a class="navbar-logo" href="../index.html">
+            🌿 MehendiHub
+            <span>Eid Designs</span>
+        </a>
+        <ul class="navbar-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="favorites.html">❤️ Favorites</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+        </ul>
+        <div class="navbar-right">
+            <button class="dark-toggle" id="darkToggle" title="Toggle dark mode">🌙</button>
+            <button class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="favorites.html">❤️ Favorites</a>
+        <a href="about.html">About</a>
+    </div>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h1>About MehendiHub</h1>
+        <p>A passion project built with love for Eid celebrations.</p>
+    </div>
+
+    <!-- ABOUT CONTENT -->
+    <div class="about-section animate-fadeIn">
+
+        <div class="about-card">
+            <h2>What is MehendiHub?</h2>
+            <p>MehendiHub is a free Mehendi design gallery created to help people find the perfect henna design for Eid.
+                Browse hundreds of Simple, Arabic, Bridal, and Kids designs — all in one place.</p>
+            <p>Every design can be saved to your favorites and downloaded for free. No account needed.</p>
+        </div>
+
+        <div class="about-card">
+            <h2>Built by Mozahid</h2>
+            <p>This project was built as part of a web development portfolio. It showcases skills in HTML, CSS, and
+                JavaScript including DOM manipulation, localStorage, responsive design, and clean UI architecture.</p>
+            <a href="https://github.com/Mozahid-AIUB" target="_blank" class="btn btn-primary">View GitHub Profile</a>
+        </div>
+
+        <div class="about-card">
+            <h2>Contact</h2>
+            <div class="contact-form">
+                <input type="text" placeholder="Your Name" />
+                <input type="email" placeholder="Your Email" />
+                <textarea placeholder="Your Message"></textarea>
+                <button class="btn btn-primary" onclick="alert('Message sent! Thank you.')">Send Message</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">🌿 MehendiHub</div>
+                <p>Your go-to destination for beautiful Mehendi designs for Eid and every celebration.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Pages</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="favorites.html">Favorites</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="gallery.html?filter=simple">Simple</a></li>
+                    <li><a href="gallery.html?filter=arabic">Arabic</a></li>
+                    <li><a href="gallery.html?filter=bridal">Bridal</a></li>
+                    <li><a href="gallery.html?filter=kids">Kids</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 MehendiHub. Made with ❤️ by Mozahid</p>
+        </div>
+    </footer>
+
+    <script src="../js/darkmode.js"></script>
+    <script>
+        var hamburger = document.getElementById("hamburger");
+        var mobileMenu = document.getElementById("mobileMenu");
+        if (hamburger) {
+            hamburger.addEventListener("click", function () {
+                mobileMenu.classList.toggle("open");
+            });
+        }
+    </script>
+
+</body>
+
+</html>
